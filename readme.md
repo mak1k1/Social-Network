@@ -15,7 +15,7 @@ Table "Relationships" was inspired by [tamilps2](https://www.codedodle.com/2014/
 ## Security Vulnerabilities
 
 This project's vulnerabilities haven't been tested yet.
-If you discover a security vulnerability within Laravel, please send an e-mail to Martin Cehelsky via [taylor@laravel.com](mailto:martin.cehelsky.ja@gmail.com). All security vulnerabilities will be promptly addressed.
+If you discover a security vulnerability within Laravel, please send an e-mail to Martin Cehelsky via [martin.cehelsky.ja@gmail.com](mailto:martin.cehelsky.ja@gmail.com). All security vulnerabilities will be promptly addressed.
 
 ## License
 
