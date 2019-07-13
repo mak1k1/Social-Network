@@ -8,7 +8,7 @@ This is a basic model of social network(currently in development). These feature
 - Sending friend requests (Functionality works but GUI isn't implemented yet)
 - Posting a post and viewing other posts
 
-Author: Martin Cehelsky
+**Author**: Martin Cehelsky
 
 
 Table "Relationships" was inspired by [tamilps2](https://www.codedodle.com/2014/12/social-network-friends-database.html)
@@ -16,6 +16,10 @@ Table "Relationships" was inspired by [tamilps2](https://www.codedodle.com/2014/
 
 This project's vulnerabilities haven't been tested yet.
 If you discover a security vulnerability within Laravel, please send an e-mail to Martin Cehelsky via [martin.cehelsky.ja@gmail.com](mailto:martin.cehelsky.ja@gmail.com). All security vulnerabilities will be promptly addressed.
+
+##Packages
+
+ [hootlex/laravel-friendships](https://github.com/hootlex/laravel-friendships)
 
 ## License
 
