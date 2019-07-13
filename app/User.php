@@ -3,7 +3,7 @@
 namespace App;
 
 use Illuminate\Notifications\Notifiable;
-use Jenssegers\Mongodb\Eloquent\Model as Eloquent;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Auth\Authenticatable as AuthenticableTrait;
 use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -11,15 +11,16 @@ use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 use Carbon\Carbon;
 use App\Relationship;
+use Hootlex\Friendships\Traits\Friendable;
 
-class User extends Eloquent implements AuthenticatableContract, CanResetPasswordContract
+class User extends Model implements AuthenticatableContract, CanResetPasswordContract
 {
     use Notifiable;
     use AuthenticableTrait;
     use CanResetPassword;
+    use Friendable;
 
 
-    protected $connection = 'mongodb';
     protected $fillable = [
         'first_name', 'last_name', 'birth_date', 'email', 'password',
     ];

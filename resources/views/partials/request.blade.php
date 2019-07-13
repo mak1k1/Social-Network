@@ -9,10 +9,10 @@
                         <a href="{{ route('user.show',$request->user2) }}">{{ $request->getFullName() }}</a>
                     </td>
                     <td>
-                        <form action="{{ route('user.sendFriendRequest', $request->_id) }}" method="post">
+                        <form action="{{ route('user.sendFriendRequest', $request->id) }}" method="post">
                             @csrf
                             <button class="btn btn-link" type="submit">
-                            <input type="hidden" name="recipient" value="{{ $request->_id }}">
+                            <input type="hidden" name="recipient" value="{{ $request->id }}">
                                 <img src="{{ asset('/img/addFriend.png') }}" alt="Add Friend" height="30px">
                             </button>
                         </form>
