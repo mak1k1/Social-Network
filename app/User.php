@@ -45,7 +45,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 
     public function posts()
     {
-        return $this->hasMany('App\Post','_id');
+        return $this->hasMany('App\Post','id');
     }
 
     public function getFullName(){

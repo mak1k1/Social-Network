@@ -54,7 +54,7 @@
         </div>
     </div>
 
-    {{-- <div class="container p-4">
+    <div class="container p-4">
         <div class="col-md-10 col-md-offset-3">
             <h3 class="subtitle">Your requests</h3>
             @foreach ($requests as $request)
@@ -63,7 +63,7 @@
                 ])
             @endforeach
         </div>
-    </div> --}}
+    </div>
     
     @endauth
 

@@ -15,16 +15,36 @@ class UserController extends Controller
             'posts' => Post::where('created_by', '=' ,$id)->orderBy('created_at', 'desc')->get(),
             'user' => User::find($id),
         ]);
-    }
-    
-    public function getAuth(){
-        return \Auth::user();
-    }
+    }  
 
 
     public function sendFriendRequest(Request $request){
-        $this->getAuth()->befriend(User::find($request->recipient));
+        \Auth::user()->befriend(User::find($request->recipient));
         return redirect('home');
+    }
+
+    public function respondToFriendRequest(Request $request, $sender){
+        $sender = User::find($sender);
+        $user = \Auth::user();
+
+        if(!$sender || !$user){
+            return redirect()->back()->withInput();
+        }
+
+        if($request->submit == 'accept'){
+            if($user->hasFriendRequestFrom($sender)){
+                $user->acceptFriendRequest($sender);
+                return  redirect('home');
+            }
+        }
+        elseif($request->submit == 'deny'){
+            if($user->hasFriendRequestFrom($sender)){
+                $user->denyFriendRequest($sender);
+                return redirect('home');
+            }
+        }
+
+        return redirect()->back()->withInput();
     }
 
 }

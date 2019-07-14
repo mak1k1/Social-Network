@@ -10,11 +10,11 @@ class Post extends Model
 
     public function user()
     {
-        return $this->belongsTo('App\User', 'created_by', '_id');
+        return $this->belongsTo('App\User', 'user_id', '_id');
     }
 
 
     public function getAuthor($_id){
-        return User::find($this->created_by)->getFullName();
+        return User::find($this->user_id)->getFullName();
     }
 }

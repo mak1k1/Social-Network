@@ -29,7 +29,9 @@ class HomeController extends Controller
     {
         return view('home', [
         'posts' => Post::orderBy('created_at', 'desc')->get(),
-        'other_users' => User::where('id', '!=', \Auth::user()->id)->get(),
-    ]);
+        'other_users' => User::where('id', '!=', \Auth::user()->id)->where()->get(),
+        'requests' => \Auth::user()->getFriendRequests(),
+        ]);
     }
+
 }
