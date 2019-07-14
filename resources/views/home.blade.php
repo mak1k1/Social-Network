@@ -32,6 +32,7 @@
     <div class="container p-4">
         <div class="col-md-10 col-md-offset-3">
             <h3 class="subtitle">Other Posts</h3>
+
             @foreach ($posts as $post)
                 @include('partials.post',[
                     'post'=> $post,

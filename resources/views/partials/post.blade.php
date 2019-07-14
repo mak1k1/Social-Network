@@ -2,7 +2,7 @@
     <div class="card-header">
         <ul class="nav nav-pills nav-fill">
             <li class="nav-item text-sm-left">
-            <span>by <a href="{{ route('user.show',$post->user_id) }}">{{ $post->getAuthor($post->id) }}</a></span>
+            <span>by <a href="{{ route('user.show',$post->user_id) }}">{{ $post->getAuthor() }}</a></span>
             </li>
             <li class="nav-item">
                 <h5 class="text-center"><b>{{$post->post_title}}</b></h5>

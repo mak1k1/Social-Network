@@ -11,11 +11,22 @@ class UserController extends Controller
 {
 
     public function show($id){
-        return view('user',[
-            'posts' => Post::where('created_by', '=' ,$id)->orderBy('created_at', 'desc')->get(),
-            'user' => User::find($id),
+        $user = User::find($id);
+
+        return view($user == \Auth::user() ? 'profile' : 'guest',[
+            'posts' => $user->posts,
+            'user' => $user,
+            'friends' =>$user->getFriends(),
         ]);
-    }  
+    }
+
+    public function editProfile($id){
+        if($id != \Auth::user()->id || !\Auth::check())
+            return redirect()->back()->withInputs();
+        return view('editprofile', [
+            'user' => \Auth::user(),
+        ]);        
+    }
 
 
     public function sendFriendRequest(Request $request){

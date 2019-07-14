@@ -14,7 +14,7 @@ class Post extends Model
     }
 
 
-    public function getAuthor($_id){
+    public function getAuthor(){
         return User::find($this->user_id)->getFullName();
     }
 }
