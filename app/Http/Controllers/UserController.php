@@ -12,6 +12,7 @@ class UserController extends Controller
 
     public function show($id){
         $user = User::find($id);
+        
 
         return view($user == \Auth::user() ? 'profile' : 'guest',[
             'posts' => $user->posts,
@@ -20,7 +21,21 @@ class UserController extends Controller
         ]);
     }
 
+    public function submitEditProfile(Request $request){
+        if($request->submit == 'cancel') return redirect()->back()->withInput();
+        if($request->submit == 'submit'){
+            $request->validate([
+                'birth_date' => 'date|before:today',
+            ]);
+            $user = \Auth::user();
+            $user->birth_date = $request->birth_date;
+            $user->save();
+        }
+        return $this->show($user->id);
+    }
+
     public function editProfile($id){
+
         if($id != \Auth::user()->id || !\Auth::check())
             return redirect()->back()->withInputs();
         return view('editprofile', [
